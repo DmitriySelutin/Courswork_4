@@ -30,12 +30,12 @@ class JSONSaver(FileAbstractClass):
 
     def write_data(self, vacancies: Any) -> None:
         """Метод записи данных в файл json"""
-        with open(self.filename, "a") as f:
+        with open(self.filename, "w",  encoding="utf8") as f:
             json.dump(vacancies, f, ensure_ascii=False, indent=4)
 
     def get_vacancies(self) -> Any:
         """Метод для чтения вакансий из файла json"""
-        with open(self.filename) as file:
+        with open(self.filename, "r", encoding="utf8") as file:
             data = json.load(file)
         vacancies = []
         for vacancy in data:
